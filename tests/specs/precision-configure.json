@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Set Precision",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Open precision configuration dialog"
+            }
+          }
+        ],
+        "send": {
+          "callback": "precision:configure"
+        }
+      }
+    ]
+  }
+]
