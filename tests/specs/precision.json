@@ -1,19 +1,49 @@
 [
   {
-    "name": "/precision",
+    "name": "/precision without args shows current and options",
     "steps": [
       {
+        "send": { "text": "/precision" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Set preferred decimal precision for results"
+              "text": "Current precision: 8 significant digits.\n\nSend a number between 1 and 15 to change it, or tap the button below."
             }
           }
-        ],
-        "send": {
-          "text": "/precision"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/precision with valid number sets it",
+    "steps": [
+      {
+        "send": { "text": "/precision 5" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Precision set to 5 significant digits.\nFor example, π = 3.1416"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/precision with out-of-range number shows error",
+    "steps": [
+      {
+        "send": { "text": "/precision 20" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Precision must be a whole number between 1 and 15. Try again."
+            }
+          }
+        ]
       }
     ]
   }

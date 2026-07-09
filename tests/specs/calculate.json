@@ -1,0 +1,134 @@
+[
+  {
+    "name": "basic addition",
+    "steps": [
+      {
+        "send": { "text": "2+2" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "2+2 = 4" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "basic subtraction",
+    "steps": [
+      {
+        "send": { "text": "10-3" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "10-3 = 7" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "multiplication",
+    "steps": [
+      {
+        "send": { "text": "6*7" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "6*7 = 42" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "division",
+    "steps": [
+      {
+        "send": { "text": "15/3" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "15/3 = 5" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "power",
+    "steps": [
+      {
+        "send": { "text": "2^10" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "2^10 = 1024" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "parentheses",
+    "steps": [
+      {
+        "send": { "text": "(2+3)*4" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "(2+3)*4 = 20" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sin(pi/2) returns 1",
+    "steps": [
+      {
+        "send": { "text": "sin(pi/2)" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "sin(pi/2) = 1" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sqrt",
+    "steps": [
+      {
+        "send": { "text": "sqrt(144)" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "sqrt(144) = 12" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "division by zero error",
+    "steps": [
+      {
+        "send": { "text": "1/0" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Couldn't evaluate that.\nCannot divide by zero." } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "unary plus works",
+    "steps": [
+      {
+        "send": { "text": "2++2" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "2++2 = 4" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/calc command with expression",
+    "steps": [
+      {
+        "send": { "text": "/calc 5+5" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "5+5 = 10" } }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/calc command without expression",
+    "steps": [
+      {
+        "send": { "text": "/calc" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "Send a math expression to evaluate it.\n\nExamples: 2+2, sin(pi/2), sqrt(144), 2^10" } }
+        ]
+      }
+    ]
+  }
+]

@@ -1,19 +1,33 @@
 [
   {
-    "name": "Set Precision",
+    "name": "Set Precision button shows config dialog",
     "steps": [
       {
+        "send": { "callback": "precision:configure" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Open precision configuration dialog"
+              "text": "Choose a precision level (significant digits):\nCurrent: 8"
             }
           }
-        ],
-        "send": {
-          "callback": "precision:configure"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "tapping a preset precision sets it",
+    "steps": [
+      {
+        "send": { "callback": "precision:set:5" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "Precision set to 5 significant digits.\nFor example, π = 3.1416"
+            }
+          }
+        ]
       }
     ]
   }
